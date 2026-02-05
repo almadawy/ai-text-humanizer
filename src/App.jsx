@@ -1,12 +1,20 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
+import Stats from './Stats'
 
-function App() {
+function Home() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
 
   const humanizeText = (text) => {
     if (!text.trim()) return ''
+
+    // Track usage
+    const stats = JSON.parse(localStorage.getItem('humanizerStats') || '{"totalUses":0,"lastUsed":null}')
+    stats.totalUses += 1
+    stats.lastUsed = new Date().toISOString()
+    localStorage.setItem('humanizerStats', JSON.stringify(stats))
 
     let result = text
       // Vary sentence structure by splitting and recombining
@@ -58,6 +66,11 @@ function App() {
   return (
     <div className="app">
       <div className="container">
+        <nav className="nav">
+          <Link to="/" className="nav-link active">Humanizer</Link>
+          <Link to="/stats" className="nav-link">Stats</Link>
+        </nav>
+
         <h1>🤖 AI Text Humanizer</h1>
         <p className="subtitle">Make your AI-generated text sound naturally human</p>
 
@@ -89,6 +102,17 @@ function App() {
         )}
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter basename="/ai-text-humanizer">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/stats" element={<Stats />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
