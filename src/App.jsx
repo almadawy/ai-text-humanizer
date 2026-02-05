@@ -67,8 +67,8 @@ function Home() {
     <div className="app">
       <div className="container">
         <nav className="nav">
-          <Link to="/" className="nav-link active">Humanizer</Link>
-          <Link to="/stats" className="nav-link">Stats</Link>
+          <Link to="/ai-text-humanizer/" className="nav-link active">Humanizer</Link>
+          <Link to="/ai-text-humanizer/stats" className="nav-link">Stats</Link>
         </nav>
 
         <h1>🤖 AI Text Humanizer</h1>

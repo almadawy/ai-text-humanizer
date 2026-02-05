@@ -33,8 +33,8 @@ function Stats() {
     <div className="stats-page">
       <div className="container">
         <nav className="nav">
-          <Link to="/" className="nav-link">Humanizer</Link>
-          <Link to="/stats" className="nav-link active">Stats</Link>
+          <Link to="/ai-text-humanizer/" className="nav-link">Humanizer</Link>
+          <Link to="/ai-text-humanizer/stats" className="nav-link active">Stats</Link>
         </nav>
 
         <h1>📊 Usage Statistics</h1>
