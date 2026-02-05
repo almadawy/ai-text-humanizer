@@ -111,6 +111,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stats" element={<Stats />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
