@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HashRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import Stats from './Stats'
 
@@ -107,12 +107,12 @@ function Home() {
 
 function App() {
   return (
-    <HashRouter basename="/ai-text-humanizer">
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/stats" element={<Stats />} />
+        <Route path="/ai-text-humanizer/" element={<Home />} />
+        <Route path="/ai-text-humanizer/stats" element={<Stats />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
